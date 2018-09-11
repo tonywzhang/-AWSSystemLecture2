@@ -14,3 +14,7 @@ The above action is asynchronous replication.
 Splitting up the database into thirds allows the database to split up the partition of the database so that writes don't need to be written to every single DB. By splitting up those responsibilities, every leader can be responsible for their bit of the database.
 
 PostgreSQL is able to reject any conflicting transactions. It is able to process transactions in parallel, but will also be able to stop any transactions that would cause any overlap issues.
+
+Synchronous and Asynchronous calls are normally similar in terms of run speed, but can differ greatly if the machines that store the databases are extremely far in distance.
+
+If there is only one leader database, it becomes the single point of failure. If it goes down, the app may crash. Promoting one follower to be a leader is more complicated than it might initially seem. There may be a ton of reconciliation processes that will run.
