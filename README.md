@@ -29,3 +29,7 @@ You could try to split cats up per ID, modding them by 4 and placing them into p
 If we have user with friend_id == 101, we can partition the friend_id's by mod 4, and then we can jump into partition 1, which should contain all of the friend_ids that return 1 when modded by 4.
 
 It would allow us to scale our work, instead of the opposite scenario in which we need to join our data across all partitions, which is not scalable.
+
+Instead of normalizing our data like we usually do, we can denormalize it by destroying our friendships joins table, and replacing the entirety of friend_id2s with the user information.
+
+Normalization is the safer option of the two, but denormalization can have specific benefits if it will improve the run time and efficiency of your application.
