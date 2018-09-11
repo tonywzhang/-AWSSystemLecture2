@@ -18,3 +18,8 @@ PostgreSQL is able to reject any conflicting transactions. It is able to process
 Synchronous and Asynchronous calls are normally similar in terms of run speed, but can differ greatly if the machines that store the databases are extremely far in distance.
 
 If there is only one leader database, it becomes the single point of failure. If it goes down, the app may crash. Promoting one follower to be a leader is more complicated than it might initially seem. There may be a ton of reconciliation processes that will run.
+
+
+## Cats vs Dogs Tables
+
+You could try to split cats up per ID, modding them by 4 and placing them into partitions accordingly. Doing so wouldn't change much in terms of finding the cat, but updating it would make it much faster, as it knows directly which partition that would contain the specific cat. The ability to scale out increases as the number of cats increases. By partitioning cats into different groups, it makes it easier to search into groups at a time.
