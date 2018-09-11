@@ -23,3 +23,9 @@ If there is only one leader database, it becomes the single point of failure. If
 ## Cats vs Dogs Tables
 
 You could try to split cats up per ID, modding them by 4 and placing them into partitions accordingly. Doing so wouldn't change much in terms of finding the cat, but updating it would make it much faster, as it knows directly which partition that would contain the specific cat. The ability to scale out increases as the number of cats increases. By partitioning cats into different groups, it makes it easier to search into groups at a time.
+
+## Users && Friendships Tables
+
+If we have user with friend_id == 101, we can partition the friend_id's by mod 4, and then we can jump into partition 1, which should contain all of the friend_ids that return 1 when modded by 4.
+
+It would allow us to scale our work, instead of the opposite scenario in which we need to join our data across all partitions, which is not scalable.
