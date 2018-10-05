@@ -37,3 +37,5 @@ Normalization is the safer option of the two, but denormalization can have speci
 ## Review
 
 Important to remove possibility of a single point of failure. If that one thing goes down, entire application goes down with it. Business ramifications include possibly losing millions of dollars.
+
+Asynchronous log shipping is often less taxing than synchronous log shipping.
