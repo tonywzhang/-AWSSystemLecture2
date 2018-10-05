@@ -39,3 +39,9 @@ Normalization is the safer option of the two, but denormalization can have speci
 Important to remove possibility of a single point of failure. If that one thing goes down, entire application goes down with it. Business ramifications include possibly losing millions of dollars.
 
 Asynchronous log shipping is often less taxing than synchronous log shipping.
+
+Partitioning the database is one way to make databases more efficient. By splitting up the database into multiple parts, the work is also split up and the load on the machine is that much less.
+
+Sharding the data into separate parts only makes sense if you have multiple machines, to split and shoulder the load of holding the entire database. Sharding on one machine doesn't make much sense, as it would only complicate the issue.
+
+Joins tables are queries across multiple tables, finding the joins relationships might require queries across all partitions, so partitions normally don't allow joins.
