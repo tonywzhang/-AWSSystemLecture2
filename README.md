@@ -45,3 +45,9 @@ Partitioning the database is one way to make databases more efficient. By splitt
 Sharding the data into separate parts only makes sense if you have multiple machines, to split and shoulder the load of holding the entire database. Sharding on one machine doesn't make much sense, as it would only complicate the issue.
 
 Joins tables are queries across multiple tables, finding the joins relationships might require queries across all partitions, so partitions normally don't allow joins.
+
+Problem with de-normalized data is that one change to a property is the time that it takes to change that one property every place that it is present. The write time performance is awful in that scenario. Extra space being used is another issue with de-normalized data.
+
+In normalized data, you likely only need to change the property in one place. Much more efficient and practical.
+
+If you think you're going to query for information more so than writing up information, de-normalizing the data makes sense. If there are more READ processes expected rather than POST requests, de-normalized data has a role.
