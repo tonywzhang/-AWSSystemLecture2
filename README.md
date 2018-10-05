@@ -33,3 +33,7 @@ It would allow us to scale our work, instead of the opposite scenario in which w
 Instead of normalizing our data like we usually do, we can denormalize it by destroying our friendships joins table, and replacing the entirety of friend_id2s with the user information.
 
 Normalization is the safer option of the two, but denormalization can have specific benefits if it will improve the run time and efficiency of your application.
+
+## Review
+
+Important to remove possibility of a single point of failure. If that one thing goes down, entire application goes down with it. Business ramifications include possibly losing millions of dollars.
